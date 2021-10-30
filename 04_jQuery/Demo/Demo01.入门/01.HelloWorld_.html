@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+
+        // window.onload = function () {
+        // 	var btnObj = document.getElementById("btnId");
+        // 	// alert(btnObj); //[object HTMLButtonElement]   ====>>>  dom对象
+        // 	btnObj.onclick = function () {
+        // 		alert("js 原生的单击事件");
+        // 	}
+        // }
+
+        /**
+         * 常见问题？
+         * 1、使用jQuery 一定要引入jQuery 库吗？ 答案：是，必须
+         * 2、jQuery 中的$到底是什么？ 答案：它是一个函数
+         * 3、怎么为按钮添加点击响应函数的？ 答案：
+         *    (1)、使用jQuery 查询到标签对象
+         *    (2)、使用标签对象.click( function(){} );
+         */
+        $(function () { // 表示页面加载完成 之后，相当 window.onload = function () {}
+            var $btnObj = $("#btnId"); // 表示按id查询标签对象
+            $btnObj.click(function () { // [绑定]单击事件
+                alert("jQuery 的单击事件");
+            });
+        });
+
+    </script>
+
+
+</head>
+<body>
+<button id="btnId">SayHello</button>
+</body>
+</html>
