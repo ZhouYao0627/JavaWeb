@@ -4,10 +4,33 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!--context-param是上下文参数(它属于整个web工程，可以配置多个)-->
+    <context-param>
+        <param-name>username</param-name> <!--是参数名-->
+        <param-value>context</param-value> <!--是参数值-->
+    </context-param>
+
+    <context-param>
+        <param-name>password</param-name> <!--是参数名-->
+        <param-value>root</param-value> <!--是参数值-->
+    </context-param>
+
 
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.atguigu.servlet.HelloServlet</servlet-class>
+
+        <!--init-param是初始化参数(可以配置多个)-->
+        <init-param>
+            <param-name>username</param-name>  <!--是参数名-->
+            <param-value>root</param-value> <!--是参数值-->
+        </init-param>
+
+        <init-param>
+            <param-name>url</param-name>  <!--是参数名-->
+            <param-value>jdbc:mysql://localhost:3306/test</param-value> <!--是参数值-->
+        </init-param>
+
     </servlet>
 
     <servlet-mapping>
@@ -19,12 +42,40 @@
     <servlet>
         <servlet-name>HelloServlet2</servlet-name>
         <servlet-class>com.atguigu.servlet.HelloServlet2</servlet-class>
+
+        <!--init-param是初始化参数(可以配置多个)-->
+        <init-param>
+            <param-name>username</param-name>  <!--是参数名-->
+            <param-value>root2</param-value> <!--是参数值-->
+        </init-param>
+
+        <init-param>
+            <param-name>url</param-name>  <!--是参数名-->
+            <param-value>jdbc:mysql://localhost:3306/test2</param-value> <!--是参数值-->
+        </init-param>
+        
     </servlet>
     <servlet>
         <servlet-name>HelloServlet3</servlet-name>
         <servlet-class>com.atguigu.servlet.HelloServlet3</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>com.atguigu.servlet.ContextServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextServlet1</servlet-name>
+        <servlet-class>com.atguigu.servlet.ContextServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextServlet2</servlet-name>
+        <servlet-class>com.atguigu.servlet.ContextServlet2</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>ContextServlet2</servlet-name>
+        <url-pattern>/context2</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HelloServlet2</servlet-name>
         <url-pattern>/hello2</url-pattern>
@@ -33,6 +84,16 @@
     <servlet-mapping>
         <servlet-name>HelloServlet3</servlet-name>
         <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/contextServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ContextServlet1</servlet-name>
+        <url-pattern>/context1</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JavaWeb" />
         <module name="_05_web" />
+        <module name="07_servlet" />
+        <module name="JavaWeb" />
         <module name="_06_servlet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="07_servlet" target="1.8" />
       <module name="_05_web" target="1.8" />
       <module name="_06_servlet" target="1.8" />
       <module name="JavaWeb" target="1.8" />
