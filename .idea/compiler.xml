@@ -10,12 +10,14 @@
         <module name="07_servlet" />
         <module name="JavaWeb" />
         <module name="_06_servlet" />
+        <module name="book" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="07_servlet" target="1.8" />
       <module name="_05_web" target="1.8" />
       <module name="_06_servlet" target="1.8" />
+      <module name="book" target="1.8" />
       <module name="JavaWeb" target="1.8" />
     </bytecodeTargetLevel>
   </component>

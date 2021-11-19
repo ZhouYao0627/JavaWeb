@@ -26,12 +26,12 @@ public class Servlet1 extends HttpServlet {
         // 问路：Servlet2（柜台 2）怎么走
         /**
          * 请求转发必须要以斜杠打头，/ 斜杠表示地址为：http://ip:port/工程名/ , 映射到IDEA代码的web目录<br/>
-         *
          */
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/servlet2");
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/servlet2");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/form.html");
 //        RequestDispatcher requestDispatcher = req.getRequestDispatcher("http://www.baidu.com");
 
-        // 走向Sevlet2（柜台 2）
+        // 走向Servlet2（柜台 2）
         requestDispatcher.forward(req, resp);
     }
 }
