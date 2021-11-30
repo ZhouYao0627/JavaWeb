@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
              3.检查用户名是否可用
                可用
                    调用Service保存到数据库
-                   跳到注册成功页面 regist_success.html
+                   跳到注册成功页面 regist_success.jsp
                不可用
                    跳回注册页面
          不正确
@@ -44,15 +44,28 @@ public class RegisterServlet extends HttpServlet {
 
         if ("abcde".equalsIgnoreCase(code)) {
             if (userService.existUsername(username)) {
-                System.out.println("用户名已存在");
-                req.getRequestDispatcher("/pages/user/regist.html").forward(req, resp);
+                System.out.println("用户名[" + username + "]已存在");
+
+                // 把回显信息，保存到Request域中
+                req.setAttribute("msg", "用户名已存在!");
+                req.setAttribute("username", username);
+                req.setAttribute("email", email);
+
+                req.getRequestDispatcher("/pages/user/regist.jsp").forward(req, resp);
             } else {
+                // 调用Service保存到数据库
                 userService.registerUser(new User(null, username, password, email));
-                req.getRequestDispatcher("/pages/user/regist_success.html").forward(req, resp);
+                // 跳到注册成功页面
+                req.getRequestDispatcher("/pages/user/regist_success.jsp").forward(req, resp);
             }
         } else {
-            System.out.println("验证码错误");
-            req.getRequestDispatcher("/pages/user/regist.html").forward(req, resp);
+            // 把回显信息，保存到Request域中
+            req.setAttribute("msg", "验证码错误!");
+            req.setAttribute("username", username);
+            req.setAttribute("email", email);
+
+            System.out.println("验证码[" + code + "]错误");
+            req.getRequestDispatcher("/pages/user/regist.jsp").forward(req, resp);
         }
 
 
